@@ -5,7 +5,7 @@ First of all, we would like to thank kaggle and the staff for hosting such an in
 # 1. Summary 
  Our solution is based on extensive data cleaning and multi-model weighted average and stacked ensembles using ranked probs. Using extensive data cleaning, our single model was boosted to cv 0.0004~0.0008 compared to the public Raddar's dataset.The final solution (PVT 0.80842/PUB 0.80105) which shaked up to gold zone  is the average of 3 ensemble models:
 - LGBM stack with 61 models
-- CMA weighted average with 54 models
+- CMA(Covariance Matrix Adaptation) weighted average with 54 models
 - CMA weighted average with 71 models
 
 # 2. Extensive data cleaning 
