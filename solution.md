@@ -111,9 +111,14 @@ As for reference, we share the relationship of cv and lb. It is easy to see with
 We used github for code storage, wandb/xxx for experiments tracking and kaggle datasets for OOF storage and sharing with the team.
 
 Team members: 
+
 https://www.kaggle.com/titericz
+
 https://www.kaggle.com/yamsam
+
 https://www.kaggle.com/imeintanis
+
 https://www.kaggle.com/chumajin
+
 https://www.kaggle.com/kurokurob
 
