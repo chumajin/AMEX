@@ -37,7 +37,7 @@ Thank you for @thedevastator, @ragnar123,@ambrosm,@cdeotte, @roberthatch
 | CATBoost    | 2290     | 5     | 0.7968 | 0.79832   | 0.80629    |                              |
 | MLP         | 446      | 5     | 0.7919 | 0.79102   | 0.79993    | KD using LGBM oof prediction |
 | GRU         | 188      | 5     | 0.7948 | 0.79418   | 0.80363    | KD using LGBM oof prediction |
-| transformer | 188      | 5     | 0.7932 | 0.79498   | 0.80379    | KD using LGBM oof prediction |
+| Transformer | 188      | 5     | 0.7932 | 0.79498   | 0.80379    | KD using LGBM oof prediction |
 
 
 
