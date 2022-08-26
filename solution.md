@@ -9,7 +9,20 @@ First of all, we would like to thank kaggle and the staff for hosting such an in
 - CMA weighted average with 55 models
 
 # 2. Extensive data cleaning 
-Starting from Raddar cleanned dataset, some other features were cleaned and modified in order to build a second version of the dataset. The idea here was to clean the data even more and add some diversity to the ensemble. 
+Starting from Raddar’s preprocessed dataset, some other features were cleaned, added and modified in order to build a second version of the dataset. The idea here was to clean the data even more and add some diversity to the ensemble. Some clusters of clients were added based on the pattern of missing variables for each set of features: B, D, P, R and S. Also, some continuous variables showed a curious noise pattern. Looks like a uniform noise was added in the range of (0 - 0.01] of some variables. Take a look at feature B_11 distribution. White noise was clearly added just in the 0.01 range.
+
+
+
+
+Spent some time trying to figure out a way to remove that noise and found some combinations of filters using other features that worked pretty well. For example, the B_11 feature can be cleaned by using a filter in B_1. Taking indices when B_1 is in range of 0-0.01 and inverting the signal of B_11 based on these indices, the new histogram becomes:
+
+
+
+This kind of cleaning was made with some other features like: B_1, B_5, B_7, B_11, B_15, B_17, B_18, B_21, B_23, B_24, B_26, B_27, B_29, B_36, B_37, D_58, D_60, D_69, D_71, D_102, D_133, D_144, R_1, R_6, S_16, S_17, S_19, S_22 and S_27. Extra feature cleaning helped to boost GBDT scores and added some diversity when stacking with other models.
+
+
+
+
 
 ## 2.1 Example of boosting cv using cleaning data
 - LGBM : 0.7976 → 0.7983 ( +0.0007 )
@@ -83,6 +96,7 @@ As for reference, we share the relationship of cv and lb. It is easy to see with
 - using dow average data
 - changing weights of samples in LGBM
 - adding focal loss to LGBM
+- optimizing 0.4G+0.6D, 0.8G+0.2D, etc
 
 
 # 8. Late submission result
@@ -93,5 +107,12 @@ As for reference, we share the relationship of cv and lb. It is easy to see with
  2) LGB stack with 61 models + meta features (top 50 eng. features) - PVT 0.80926, PUB 0.80072, CV 0.80097
 
 # 9. Team organization 
-We used github for code storage, wandb for experiments tracking and kaggle datasets for OOF storage and sharing with the team.
+We used github for code storage, wandb/xxx for experiments tracking and kaggle datasets for OOF storage and sharing with the team.
+
+Team members: 
+https://www.kaggle.com/titericz
+https://www.kaggle.com/yamsam
+https://www.kaggle.com/imeintanis
+https://www.kaggle.com/chumajin
+https://www.kaggle.com/kurokurob
 
