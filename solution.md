@@ -44,7 +44,9 @@ Thank you for @thedevastator, @ragnar123,@ambrosm,@cdeotte, @roberthatch
 
 # 4. Ensemble 
 
-We used the two methods for ensemble with ranked probs. One is the LGBM stacking, the other is the CMA (Covariance Matrix Adaptation) Evolution Strategy [REF:https://www.scm.com/doc/params/python/optimizers/cmaes.html] .
+We used the two methods for ensemble with ranked probs. One is the LGBM stacking, the other is the CMA (Covariance Matrix Adaptation) Evolution Strategy
+[REF](https://www.scm.com/doc/params/python/optimizers/cmaes.html)
+
 
 And final submission is the average of the following 3 ensemble models(case1～3) ::
 | Case   | Ensemble Method | cv       | public lb | private lb | Number of total models | Num of LGBM | Num of XGBoost | Num of CATBoost | Num of 1dcnn | Num of 2dcnn | Num of MLP | Num of TCN | Num of GRU | Num of Transformer |
@@ -55,7 +57,7 @@ And final submission is the average of the following 3 ensemble models(case1～3
 
 As you can see, the public lb is almost the same, but the private lb shows much better LGBM stacking. We would have been hard pressed to get the gold medal without LGBM stacking.
 
-## 4.1. Final sub (ensemble result of case 1 ~ 3)
+## 4.1. Final sub (ensemble results of case 1 ~ 3)
 The ensemble result of the above case 1-3 is our final submission.
 public lb 0.80105, private lb 0.80842 (16th).
 
@@ -65,16 +67,7 @@ public lb 0.80105, private lb 0.80842 (16th).
 
 As for reference, we share the relationship of cv and lb. It is easy to see without looking at the plot with cma, but the lgbm stacking is a clean extension of the cv/lb straight line of the single model (Maybe cma is overfitting…)
 
-
-
-
-
-
-
-
-
-
-
+![](https://raw.githubusercontent.com/chumajin/AMEX/main/AMEX_cv_lb.jpg)
 
 # 6. Other tips that worked well 
 
@@ -99,4 +92,58 @@ LGB stack with 61 models + meta features (top 50 eng. features) - PVT 0.80926, P
 
 # 9. Team organization 
 We used github for code storage, wandb/xxx for experiments tracking and kaggle datasets for OOF storage and sharing with the team.
+
+
+
+
+
+—-----------------------end—---------------------
+
+
+
+—-------------------------------------------------backup—------------------------------------------
+
+For GBDT (LGBM, XGboost, CATBoost)
+1) https://www.kaggle.com/code/thedevastator/amex-bruteforce-feature-engineering
+2) https://www.kaggle.com/code/thedevastator/amex-features-the-best-of-both-worlds
+3) https://www.kaggle.com/code/ragnar123/amex-lgbm-dart-cv-0-7977
+4) https://www.kaggle.com/code/roberthatch/xgboost-pyramid-cv-0-7968
+
+For NN (MLP, GRU, Transformer)
+
+5) https://www.kaggle.com/code/ambrosm/amex-keras-quickstart-1-training
+6) https://www.kaggle.com/code/cdeotte/tensorflow-gru-starter-0-790
+7) https://www.kaggle.com/code/cdeotte/tensorflow-transformer-0-790
+
+—-------------
+
+Our originality is using Giba's cleaned data and mega ensemble with LGBM stacking and weight ensemble optimization using CMA (Covariance Matrix Adaptation) Evolution Strategy [REF:https://www.scm.com/doc/params/python/optimizers/cmaes.html] 
+Using Giba's clean data, our single model was boosted to cv 0.0004~0.0020 compared to the public raddar's dataset. And we created three ensemble files (case 1 : lgbm stacking 61 models, case 2: cma 54 models,  case 3 : cma 71 models ). Moreover, we ensembled these three files by averaging. Finally, we got public lb 0.80105, private lb 0.80842. We can shake up from silver zone to gold zone.
+
+
+—---------------
+
+mega ensemble with LGBM stacking and weight ensemble optimization using CMA (Covariance Matrix Adaptation) Evolution Strategy [REF:https://www.scm.com/doc/params/python/optimizers/cmaes.html] 
+
+
+
+Using Giba's clean data, our single model was boosted to cv 0.0004~0.0020 compared to the public raddar's dataset. And we created three ensemble files (case 1 : lgbm stacking 61 models, case 2: cma 54 models,  case 3 : cma 71 models ). Moreover, we ensembled these three files by averaging. Finally, we got public lb 0.80105, private lb 0.80842. We can shake up from silver zone to gold zone.
+
+
+—----------
+
+[TLDR] Our solution is based on multi-model (weighted average and stacked ensembles using ranked probs. Diversity in modeling, extensive data cleaning rounds and conservative parameters for better regularization in 2nd level models, we believe were the keys that allow us to jump  to the gold zone at the end.    
+
+
+
+#9. After the end of competition we realized that we had 2 ensembles with PVT LB > 0.80920 (3-4th place) - however, were not considered due to lower CV scores.
+avg rank of 3 stack models (XGB+LGB+Catboost) - PVT 0.80928, PUB 0.80067, CV 0.8008 
+LGB stack with 61 models + meta features (top 50 eng. features) - PVT 0.80926, PUB 0.80072, CV 0.80097
+
+
+
+Team organization 
+We used github for code storage, wandb/xxx for experiments tracking and kaggle datasets for OOF storage and sharing with the team.
+
+
 
