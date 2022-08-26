@@ -63,11 +63,9 @@ We used the two methods for ensemble with ranked probs. One is the LGBM stacking
 
 
 And final submission is the average of the following 3 ensemble models(case1～3) ::
-| Case   | Ensemble Method | cv       | public lb | private lb | Number of total models | Num of LGBM | Num of XGBoost | Num of CATBoost | Num of 1dcnn | Num of 2dcnn | Num of MLP | Num of TCN | Num of GRU | Num of Transformer |
-|--------|-----------------|----------|-----------|------------|------------------------|-------------|----------------|-----------------|--------------|--------------|------------|------------|------------|--------------------|
-| Case 1 | LGBM stacking   | 0.8010    | 0.80084   | 0.80882    | 61                     | 28          | 11             | 9               | 1            | 1            | 5          | 2          | 3          | 1                  |
-| Case 2 | cma             | 0.8032 | 0.80086   | 0.80794    | 54                     | 20          | 12             | 9               | 1            | 1            | 5          | 2          | 3          | 1                  |
-| Case 3 | cma             | 0.8028 | 0.80068   | 0.8079     | 55                     | 25          | 14             | 10              | 0            | 0            | 3          | 0          | 3          | 0                  |
+
+![](https://raw.githubusercontent.com/chumajin/AMEX/main/chumajin1.jpg)
+
 
 As you can see, the public lb is almost the same, but the private lb shows much better LGBM stacking. We would have been hard pressed to get the gold medal without LGBM stacking.
 
